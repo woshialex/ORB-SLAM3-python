@@ -21,6 +21,9 @@ public:
     bool isRunning();
     void setUseViewer(bool useViewer);
     std::vector<Eigen::Matrix4f> getTrajectory() const;
+    auto get_pose(){
+      return pose.matrix();
+    }
 
 private:
     std::string vocabluaryFile;
@@ -29,6 +32,7 @@ private:
     std::shared_ptr<ORB_SLAM3::System> system;
     bool bUseViewer;
     bool bUseRGB;
+    Sophus::SE3f pose;
 };
 
 #endif // ORB_SLAM3_PYTHON_H
