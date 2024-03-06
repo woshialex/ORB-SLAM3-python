@@ -14,6 +14,7 @@ Python bindings generated using [pybind11](https://pybind11.readthedocs.io/en/st
 + Pangolin
 + Eigen >= 3.1
 + C++11 or C++0x Compiler
++ install octomap from source (latest version) https://github.com/OctoMap/octomap
 
 ## Installation
 
