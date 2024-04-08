@@ -4,6 +4,12 @@
 #include <memory>
 #include <System.h>
 #include <Tracking.h>
+#include <pybind11/stl.h>
+#include <pybind11/eigen.h>
+#include <pybind11/numpy.h>
+#include <pybind11/pybind11.h>
+
+namespace py = pybind11;
 
 class ORBSLAM3Python
 {
@@ -24,6 +30,7 @@ public:
     auto get_pose(){
       return pose.matrix();
     }
+    py::array_t<short> get2DOccMap() const;
 
 private:
     std::string vocabluaryFile;

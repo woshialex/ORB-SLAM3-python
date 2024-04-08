@@ -1,5 +1,8 @@
 ORB-SLAM3-PYTHON
 ===
+Todo: 
++ when lost, don't create new map (have bug), might just assume not moving, or switch to optical flow based method (which is supper fast)
+
 
 Python bindings generated using [pybind11](https://pybind11.readthedocs.io/en/stable/). We use a modified version of ORB-SLAM3 (included as a submodule) to exntend interfaces. It might not be the most up-to-date with the original ORB-SLAM3.
 

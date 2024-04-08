@@ -110,6 +110,16 @@ void ORBSLAM3Python::shutdown()
     }
 }
 
+py::array_t<short> ORBSLAM3Python::get2DOccMap() const
+{
+    auto map = system->Get2DOccMap();
+    return py::array_t<short>(
+        {map.m_height, map.m_width}, //shape
+        {map.m_width*2, 2}, //strides
+        &map.data.front()
+        );
+}
+
 void ORBSLAM3Python::setUseViewer(bool useViewer)
 {
     bUseViewer = useViewer;
@@ -151,5 +161,6 @@ PYBIND11_MODULE(orbslam3, m)
         .def("reset", &ORBSLAM3Python::reset)
         .def("set_use_viewer", &ORBSLAM3Python::setUseViewer)
         .def("get_pose", &ORBSLAM3Python::get_pose)
-        .def("get_trajectory", &ORBSLAM3Python::getTrajectory);
+        .def("get_trajectory", &ORBSLAM3Python::getTrajectory)
+        .def("get_2d_occmap", &ORBSLAM3Python::get2DOccMap);
 }
